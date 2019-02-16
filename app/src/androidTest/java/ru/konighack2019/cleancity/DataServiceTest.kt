@@ -13,7 +13,7 @@ import org.kodein.di.generic.singleton
 import ru.konighack2019.cleancity.db.Dao
 import ru.konighack2019.cleancity.db.Database
 import ru.konighack2019.cleancity.di.networkModule
-import ru.konighack2019.cleancity.model.KSReport
+import ru.konighack2019.cleancity.model.Report
 import ru.konighack2019.cleancity.model.UserInfo
 import ru.konighack2019.cleancity.service.DataService
 import ru.konighack2019.cleancity.service.data.IntegratedDataService
@@ -29,7 +29,7 @@ class DataServiceTest {
     lateinit var kodein: Kodein
     lateinit var dataService: DataService
 
-    val report = KSReport(
+    val report = Report(
         "тема", "описание", "адрес",
         "fgs", "f@d.s", "123", "регион", "1", "1",
         "54.72263743392473,20.502462387084964",

@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.firebase.FirebaseApp
 import org.kodein.di.generic.instance
-import ru.konighack2019.cleancity.presentation.generator.GeneratorFragment
+import ru.konighack2019.cleancity.presentation.generator.ReportFragment
+import ru.konighack2019.cleancity.presentation.results.ResultsFragment
 import ru.konighack2019.cleancity.presentation.validation.ImageValidationFragment
 import ru.konighack2019.cleancity.presentation.validation.LocationValidationFragment
+import ru.konighack2019.cleancity.presentation.validation.ReportGenerationFragment
 import ru.konighack2019.cleancity.service.AppStateService
 import ru.konighack2019.cleancity.service.common.AppState
 
@@ -37,10 +39,11 @@ class AppActivity : AppCompatActivity() {
 
     fun changeAppState(state: AppState) =
         when (state) {
-            AppState.GENERATION -> replaceFragment(GeneratorFragment())
+            AppState.GENERATION -> replaceFragment(ReportGenerationFragment())
             AppState.VALIDATION_IMAGE -> replaceFragment(ImageValidationFragment())
             AppState.VALIDATION_LOCATION -> replaceFragment(LocationValidationFragment())
-            AppState.HISTORY -> {}
+            AppState.REPORT_READY -> replaceFragment(ReportFragment())
+            AppState.HISTORY -> replaceFragment(ResultsFragment())
         }
 
 }

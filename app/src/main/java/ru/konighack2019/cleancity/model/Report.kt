@@ -2,7 +2,7 @@ package ru.konighack2019.cleancity.model
 
 import android.net.Uri
 
-data class KSReport (val subject: String,
+data class Report (val subject: String,
                    val description: String,
                    val address: String,
                    val name: String,

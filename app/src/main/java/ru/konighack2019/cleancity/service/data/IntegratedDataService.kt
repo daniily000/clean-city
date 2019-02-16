@@ -11,7 +11,7 @@ import okhttp3.MultipartBody
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.db.Dao
-import ru.konighack2019.cleancity.model.KSReport
+import ru.konighack2019.cleancity.model.Report
 import ru.konighack2019.cleancity.model.Point
 import ru.konighack2019.cleancity.model.UserInfo
 import ru.konighack2019.cleancity.net.NetApi
@@ -32,7 +32,7 @@ class IntegratedDataService : DataService {
         return ksDao.getPointById(id)
     }
 
-    override suspend fun postReport(report: KSReport): String {
+    override suspend fun postReport(report: Report): String {
         val body = MultipartBody.Builder().addFormDataPart("subject", report.subject)
             .addFormDataPart("address", report.address)
             .addFormDataPart("region_name", report.regionName)

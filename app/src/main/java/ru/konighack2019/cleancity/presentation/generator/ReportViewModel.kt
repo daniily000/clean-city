@@ -10,15 +10,13 @@ import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.service.AppStateService
 import ru.konighack2019.cleancity.service.ReportGenerator
 
-class GeneratorViewModel : ViewModel() {
+class ReportViewModel : ViewModel() {
     private val generatorService: ReportGenerator by AppDelegate.getKodein().instance()
     private val reportService: ReportGenerator by AppDelegate.getKodein().instance()
     private val appStateService: AppStateService by AppDelegate.getKodein().instance()
 
     val generatorState = generatorService.getState()
-    var isReportReady = MutableLiveData<Boolean>().also { it.postValue(false) }
     val report = reportService.getReport()
-
     val editMode = MutableLiveData<Boolean>().also { it.postValue(false) }
 
     private val formErrors = MutableLiveData<MutableMap<String, String>>().also { it.postValue(mutableMapOf()) }

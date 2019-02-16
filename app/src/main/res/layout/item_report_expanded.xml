@@ -37,7 +37,7 @@
             android:textColor="@color/colorAccent"
             android:text="Comment"/>
 
-    <ScrollView
+    <LinearLayout
             android:id="@+id/report_layout_photo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             android:orientation="horizontal"/>
 
 
-    <ScrollView
+    <LinearLayout
             android:id="@+id/report_layout_photo_admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
