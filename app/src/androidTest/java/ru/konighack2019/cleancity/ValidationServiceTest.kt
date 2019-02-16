@@ -64,7 +64,7 @@ class ValidationServiceTest {
             it?.apply {
                 result = it
                 Log.d("VALIDATION_TEST: ", result.toString())
-                if(it != OperationState.VALIDATING) {
+                if(it != OperationState.PROCESSING) {
                     latch.countDown()
                 }
             }

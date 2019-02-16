@@ -10,10 +10,7 @@ import org.kodein.di.generic.singleton
 import ru.konighack2019.cleancity.db.Dao
 import ru.konighack2019.cleancity.db.Database
 import ru.konighack2019.cleancity.di.networkModule
-import ru.konighack2019.cleancity.service.DataService
-import ru.konighack2019.cleancity.service.StorageService
-import ru.konighack2019.cleancity.service.StorageServiceImpl
-import ru.konighack2019.cleancity.service.ValidationService
+import ru.konighack2019.cleancity.service.*
 import ru.konighack2019.cleancity.service.data.IntegratedDataService
 import ru.konighack2019.cleancity.service.validation.FirebaseValidationService
 
@@ -32,6 +29,7 @@ class AppDelegate: Application() {
                 .fallbackToDestructiveMigration()
                 .build().getKSDao()
         }
+        bind<AppStateService>() with singleton { AppStateService() }
         bind<ValidationService>() with singleton { FirebaseValidationService() }
         bind<DataService>() with singleton { IntegratedDataService() }
         bind<StorageService>() with singleton { StorageServiceImpl() }
