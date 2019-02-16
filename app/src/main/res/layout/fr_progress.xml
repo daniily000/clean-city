@@ -5,7 +5,7 @@
         <import type="ru.konighack2019.cleancity.service.common.OperationState"/>
         <variable
                 name="vm"
-                type="ru.konighack2019.cleancity.presentation.validation.LocationValidationViewModel"/>
+                type="ru.konighack2019.cleancity.presentation.validation.ProgressViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,10 +39,10 @@
         <TextView android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:textAlignment="center"
+                  android:id="@+id/progress_message"
                   app:layout_constraintTop_toBottomOf="@id/location_validation_progress"
                   app:layout_constraintStart_toStartOf="parent"
-                  app:layout_constraintEnd_toEndOf="parent"
-                  android:text="@string/validating_location"/>
+                  app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

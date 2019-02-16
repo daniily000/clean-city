@@ -5,4 +5,5 @@
     <string name="generating_report">Generating report</string>
     <string name="validationg_image">Validating image</string>
     <string name="validating_location">Validating location</string>
+    <string name="sending_report">Sending report</string>
 </resources>
