@@ -46,6 +46,10 @@ class AppStateService {
 
     }
 
+    fun onReportReady() {
+        appState.postValue(AppState.REPORT_READY)
+    }
+
     fun postReport() {
         GlobalScope.launch { dataService.postReport(reportService.getReport()) }
         showHistory()

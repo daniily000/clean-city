@@ -12,11 +12,8 @@ import androidx.lifecycle.ViewModelProviders
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.R
-import ru.konighack2019.cleancity.databinding.FrImageValidationBinding
-import ru.konighack2019.cleancity.presentation.generator.GeneratorViewModel
 import ru.konighack2019.cleancity.service.AppStateService
 import ru.konighack2019.cleancity.service.DataService
-import ru.konighack2019.cleancity.service.ReportGenerator
 import ru.konighack2019.cleancity.service.ValidationService
 import ru.konighack2019.cleancity.service.common.OperationState
 

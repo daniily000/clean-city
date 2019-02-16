@@ -3,6 +3,6 @@
     <string name="report_subject">Pollution report</string>
     <string name="report_description">Pollution at %1$s</string>
     <string name="generating_report">Generating report</string>
-    <string name="validationg_image">Validationg image</string>
+    <string name="validationg_image">Validating image</string>
     <string name="validating_location">Validating location</string>
 </resources>

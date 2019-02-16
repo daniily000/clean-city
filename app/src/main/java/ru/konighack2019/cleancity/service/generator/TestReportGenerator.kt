@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.R
-import ru.konighack2019.cleancity.model.KSReport
+import ru.konighack2019.cleancity.model.Report
 import ru.konighack2019.cleancity.model.UserInfo
 import ru.konighack2019.cleancity.service.ReportGenerator
 import ru.konighack2019.cleancity.service.common.OperationState
@@ -34,7 +34,7 @@ class TestReportGenerator : ReportGenerator {
     private val geocoder = Geocoder(AppDelegate.applicationContext(), Locale.getDefault())
     private val locationProvider: FusedLocationProviderClient by AppDelegate.getKodein().instance()
 
-    private lateinit var pendingReport: KSReport
+    private lateinit var pendingReport: Report
     private val generationState = MutableLiveData<OperationState>()
 
     override fun getState() = generationState
@@ -55,7 +55,7 @@ class TestReportGenerator : ReportGenerator {
                         //val user = dataService.getUserInfoBlocking()
                         val user = UserInfo("test", "test@test.io", "+71234567890")
 
-                        pendingReport = KSReport(
+                        pendingReport = Report(
                             AppDelegate.applicationContext().getString(R.string.report_subject),
                             String.format(AppDelegate.applicationContext().getString(R.string.report_description), addr[0].getAddressLine(0)),
                             addr[0].getAddressLine(0),
