@@ -3,6 +3,8 @@ package ru.konighack2019.cleancity
 import android.app.Application
 import android.content.Context
 import androidx.room.Room
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import org.kodein.di.Kodein
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.provider
@@ -12,6 +14,7 @@ import ru.konighack2019.cleancity.db.Database
 import ru.konighack2019.cleancity.di.networkModule
 import ru.konighack2019.cleancity.service.*
 import ru.konighack2019.cleancity.service.data.IntegratedDataService
+import ru.konighack2019.cleancity.service.generator.TestReportGenerator
 import ru.konighack2019.cleancity.service.validation.FirebaseValidationService
 
 /**
@@ -32,8 +35,9 @@ class AppDelegate: Application() {
         bind<AppStateService>() with singleton { AppStateService() }
         bind<ValidationService>() with singleton { FirebaseValidationService() }
         bind<DataService>() with singleton { IntegratedDataService() }
-        bind<StorageService>() with singleton { StorageServiceImpl() }
+        bind<ReportGenerator>() with singleton { TestReportGenerator() }
         bind<AppDelegate>() with provider { this@AppDelegate }
+        bind<FusedLocationProviderClient>() with singleton { LocationServices.getFusedLocationProviderClient(applicationContext) }
     }
 
     companion object {

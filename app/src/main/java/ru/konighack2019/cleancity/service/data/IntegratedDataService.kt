@@ -11,7 +11,7 @@ import okhttp3.MultipartBody
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.db.Dao
-import ru.konighack2019.cleancity.model.KSReport
+import ru.konighack2019.cleancity.model.Report
 import ru.konighack2019.cleancity.model.Point
 import ru.konighack2019.cleancity.model.UserInfo
 import ru.konighack2019.cleancity.net.NetApi
@@ -22,17 +22,17 @@ class IntegratedDataService : DataService {
 
     override var imageUri: Uri? = null
 
-    private val ksApi: NetApi by AppDelegate.getKodein().instance()
-    private val ksDao: Dao by AppDelegate.getKodein().instance()
+    private val api: NetApi by AppDelegate.getKodein().instance()
+    private val dao: Dao by AppDelegate.getKodein().instance()
 
     override fun getPointDetails(id: String): LiveData<Point> {
         GlobalScope.launch {
-            ksDao.insertPoint(ksApi.getPointById(id).await())
+            dao.insertPoint(api.getPointById(id).await())
         }
-        return ksDao.getPointById(id)
+        return dao.getPointById(id)
     }
 
-    override suspend fun postReport(report: KSReport): String {
+    override suspend fun postReport(report: Report): String {
         val body = MultipartBody.Builder().addFormDataPart("subject", report.subject)
             .addFormDataPart("address", report.address)
             .addFormDataPart("region_name", report.regionName)
@@ -54,14 +54,14 @@ class IntegratedDataService : DataService {
             )
         }
 
-        val id = ksApi.postKSReport(body.setType(MediaType.get("multipart/form-data")).build()).await()
-        ksDao.insertPoint(ksApi.getPointById(id).await())
+        val id = api.postKSReport(body.setType(MediaType.get("multipart/form-data")).build()).await()
+        dao.insertPoint(api.getPointById(id).await())
         return id
     }
 
-    override fun getAllPointDetails(): LiveData<List<Point>> = ksDao.getAllPoints()
-    override fun getUserInfo(): LiveData<UserInfo> = ksDao.getUserInfo()
-    override fun saveUserInfo(userInfo: UserInfo) = ksDao.insertUserInfo(userInfo)
-    override fun getUserInfoBlocking(): UserInfo = ksDao.getUserInfoBlocking()
-    override fun flushPoints() = ksApi.deleteAllPoints()
+    override fun getAllPointDetails(): LiveData<List<Point>> = dao.getAllPoints()
+    override fun getUserInfo(): LiveData<UserInfo> = dao.getUserInfo()
+    override fun saveUserInfo(userInfo: UserInfo) = dao.insertUserInfo(userInfo)
+    override fun getUserInfoBlocking(): UserInfo = dao.getUserInfoBlocking()
+    override fun flushPoints() = api.deleteAllPoints()
 }

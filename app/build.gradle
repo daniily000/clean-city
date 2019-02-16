@@ -81,4 +81,7 @@ dependencies {
 
     /* Dexter library for easy permission checking */
     implementation 'com.karumi:dexter:5.0.0'
+    
+    /* camera */
+    implementation 'io.fotoapparat:fotoapparat:2.6.1'
 }

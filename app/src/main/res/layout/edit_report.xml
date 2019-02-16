@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="report"
-                type="ru.konighack2019.cleancity.model.KSReport"/>
+                type="ru.konighack2019.cleancity.model.Report"/>
 
     </data>
 

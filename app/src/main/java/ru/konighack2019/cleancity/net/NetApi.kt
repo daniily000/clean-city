@@ -16,7 +16,7 @@ interface NetApi {
     fun postKSReport(@Body multipartBody: MultipartBody): Deferred<String>
 
     /* Kgdesoo.ru */
-    @POST("requests")
+    @POST("complains")
     fun postEsooReport(@Body multipartBody: MultipartBody): Deferred<String>
 
     /* FOR TESTING PURPOSES ONLY */

@@ -12,9 +12,12 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import org.kodein.di.generic.instance
-import ru.konighack2019.cleancity.presentation.generator.GeneratorFragment
+import ru.konighack2019.cleancity.presentation.generator.ReportFragment
+import ru.konighack2019.cleancity.presentation.results.ResultsFragment
 import ru.konighack2019.cleancity.presentation.validation.ImageValidationFragment
 import ru.konighack2019.cleancity.presentation.validation.LocationValidationFragment
+import ru.konighack2019.cleancity.presentation.validation.PostingReportFragment
+import ru.konighack2019.cleancity.presentation.validation.ReportGenerationFragment
 import ru.konighack2019.cleancity.service.AppStateService
 import ru.konighack2019.cleancity.service.common.AppState
 
@@ -43,12 +46,6 @@ class AppActivity : AppCompatActivity() {
         appService.appState.observe(this@AppActivity, Observer { changeAppState(it) })
     }
 
-    private fun setFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, fragment)
-            .commit()
-    }
-
     private fun checkPermissions(permissions: Collection<String>, onSuccess: () -> Unit) {
         Dexter
             .withActivity(this)
@@ -75,6 +72,7 @@ class AppActivity : AppCompatActivity() {
         }
 
 
+
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment).commit()
@@ -82,10 +80,12 @@ class AppActivity : AppCompatActivity() {
 
     fun changeAppState(state: AppState) =
         when (state) {
-            AppState.GENERATION -> replaceFragment(GeneratorFragment())
+            AppState.GENERATION -> replaceFragment(ReportGenerationFragment())
             AppState.VALIDATION_IMAGE -> replaceFragment(ImageValidationFragment())
             AppState.VALIDATION_LOCATION -> replaceFragment(LocationValidationFragment())
-            AppState.HISTORY -> {}
+            AppState.REPORT_READY -> replaceFragment(ReportFragment())
+            AppState.HISTORY -> replaceFragment(ResultsFragment())
+            AppState.POSTING_REPORT -> replaceFragment(PostingReportFragment())
         }
 
 }
