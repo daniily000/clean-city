@@ -12,9 +12,6 @@ interface NetApi {
     @GET("port_query/{id}")
     fun getPointById(@Path("id") id: String): Deferred<Point>
 
-    @GET("points")
-    fun getAllPoints(): Deferred<List<Point>>
-
     @POST("requests")
     fun postKSReport(@Body multipartBody: MultipartBody): Deferred<String>
 
