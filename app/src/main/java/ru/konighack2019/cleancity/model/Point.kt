@@ -1,5 +1,8 @@
 package ru.konighack2019.cleancity.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 class Point (
     val id: String,
     val subject: String,
