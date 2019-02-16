@@ -26,7 +26,7 @@ class TestReportGenerator : ReportGenerator {
     }
 
     override fun createKSReport(imageUris: List<Uri>): LiveData<OperationState> {
-        generationState.postValue(OperationState.VALIDATING)
+        generationState.postValue(OperationState.PROCESSING)
         generateReport(imageUris)
         return generationState
     }

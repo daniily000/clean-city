@@ -3,6 +3,8 @@ package ru.konighack2019.cleancity.service
 import android.net.Uri
 import android.os.Environment
 import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.service.common.AppState
@@ -18,19 +20,33 @@ class AppStateService {
 
     init {
         val path =  "file://" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/171006-443-to7bN83pAcHC3CgI.JPG"
-        reportService.createKSReport(listOf(Uri.parse(path)))
-        generateReport()
+        validateImage()
     }
 
-    fun generateReport() {
+    fun generateKSReport() {
         appState.postValue(AppState.GENERATION)
+        reportService.createKSReport(listOf(dataService.imageUri))
     }
 
-    fun validateReport() {
-        appState.postValue(AppState.VALIDATION)
+    fun generateEsooReport() {
+        appState.postValue(AppState.GENERATION)
+        reportService.createKSReport(listOf(dataService.imageUri))
     }
 
-    fun showHistory() {
+    fun validateImage() {
+        appState.postValue(AppState.VALIDATION_IMAGE)
+    }
+
+    fun validateLocation() {
+        appState.postValue(AppState.VALIDATION_LOCATION)
+    }
+
+    fun showError(message: String) {
+
+    }
+
+    fun postReport() {
+        GlobalScope.launch { dataService.postReport(reportService.getReport()) }
         appState.postValue(AppState.HISTORY)
     }
 

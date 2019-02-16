@@ -56,14 +56,14 @@ class FirebaseValidationService : ValidationService {
 
     private fun detectNearPointsInFirestore(store: GeoFirestore): LiveData<OperationState> {
         val result = MutableLiveData<OperationState>().also { it.postValue(
-            OperationState.VALIDATING) }
+            OperationState.PROCESSING) }
         if (ContextCompat.checkSelfPermission(AppDelegate.applicationContext(), Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
             locationProvider.lastLocation.addOnSuccessListener {
                 val geoQuery = store.queryAtLocation(GeoPoint(it.latitude, it.longitude),
                     DETECTION_RADIUS
                 )
-                result.postValue(OperationState.VALIDATING)
+                result.postValue(OperationState.PROCESSING)
                 geoQuery.addGeoQueryEventListener(GeoPointListener {
                     if (it.isNotEmpty()) result.postValue(OperationState.FAILED)
                     else result.postValue(OperationState.SUCCESS)
@@ -76,8 +76,8 @@ class FirebaseValidationService : ValidationService {
 
     override fun imageContainsDump(imageUris: List<Uri>): LiveData<OperationState> {
         val result = MutableLiveData<OperationState>().also { it.postValue(
-            OperationState.VALIDATING) }
-        result.postValue(OperationState.VALIDATING)
+            OperationState.PROCESSING) }
+        result.postValue(OperationState.PROCESSING)
         var positives = 0
         var negatives = 0
         imageUris.forEach {
@@ -105,7 +105,7 @@ class FirebaseValidationService : ValidationService {
         val geoQuery = store.queryAtLocation(GeoPoint(lat, lng),
             DETECTION_RADIUS
         )
-        result.postValue(OperationState.VALIDATING)
+        result.postValue(OperationState.PROCESSING)
         geoQuery.addGeoQueryEventListener(GeoPointListener {
             if (it.isNotEmpty()) result.postValue(OperationState.FAILED)
             else result.postValue(OperationState.SUCCESS)

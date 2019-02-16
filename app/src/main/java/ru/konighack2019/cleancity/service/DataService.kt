@@ -1,5 +1,6 @@
 package ru.konighack2019.cleancity.service
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import retrofit2.Call
 import ru.konighack2019.cleancity.model.KSReport
@@ -11,6 +12,7 @@ import ru.konighack2019.cleancity.model.UserInfo
  *
  */
 interface DataService {
+    var imageUri: Uri
     /**
      * Fetches [PointDetails] info from server API and saves to local DB
      * @param id String with id of requested point
