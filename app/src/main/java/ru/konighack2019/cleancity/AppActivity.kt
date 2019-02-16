@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.google.firebase.FirebaseApp
 import org.kodein.di.generic.instance
+import ru.konighack2019.cleancity.presentation.camera.CameraFragment
 import ru.konighack2019.cleancity.presentation.generator.ReportFragment
 import ru.konighack2019.cleancity.presentation.results.ResultsFragment
 import ru.konighack2019.cleancity.presentation.validation.ImageValidationFragment
@@ -23,8 +24,8 @@ class AppActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app)
         FirebaseApp.initializeApp(this)
-
         appService.appState.observe(this, Observer { changeAppState(it) })
+        appService.showCamera()
     }
 
     private fun replaceFragment(fragment: Fragment) {
@@ -40,6 +41,7 @@ class AppActivity : AppCompatActivity() {
             AppState.REPORT_READY -> replaceFragment(ReportFragment())
             AppState.HISTORY -> replaceFragment(ResultsFragment())
             AppState.POSTING_REPORT -> replaceFragment(PostingReportFragment())
+            AppState.CAMERA -> replaceFragment(CameraFragment())
         }
 
 }

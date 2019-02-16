@@ -19,9 +19,9 @@ class AppStateService {
     val appState = MutableLiveData<AppState>()
 
     init {
-        val path =  "file://" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/171006-443-to7bN83pAcHC3CgI.JPG"
-        dataService.imageUri = Uri.parse(path)
-        validateImage()
+//        val path =  "file://" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/171006-443-to7bN83pAcHC3CgI.JPG"
+//        dataService.imageUri = Uri.parse(path)
+//        validateImage()
     }
 
     fun generateKSReport() {
@@ -38,12 +38,16 @@ class AppStateService {
         appState.postValue(AppState.VALIDATION_IMAGE)
     }
 
+    fun showCamera() {
+        appState.postValue(AppState.CAMERA)
+    }
+
     fun validateLocation() {
         appState.postValue(AppState.VALIDATION_LOCATION)
     }
 
     fun showError(message: String) {
-
+        //TODO: NOT IMPLEMENTED
     }
 
     fun onReportReady() {
