@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.teamtwothree.kartasvalokapp.presentation.results.adapter.ReportsAdapter
 import kotlinx.android.synthetic.main.fr_results.*
 import ru.konighack2019.cleancity.R
-import ru.konighack2019.cleancity.databinding.FrResultsBinding
 
 class ResultsFragment : Fragment(){
 

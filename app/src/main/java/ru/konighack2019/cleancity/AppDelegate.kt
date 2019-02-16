@@ -36,7 +36,6 @@ class AppDelegate: Application() {
         bind<ValidationService>() with singleton { FirebaseValidationService() }
         bind<DataService>() with singleton { IntegratedDataService() }
         bind<ReportGenerator>() with singleton { TestReportGenerator() }
-        bind<StorageService>() with singleton { StorageServiceImpl() }
         bind<AppDelegate>() with provider { this@AppDelegate }
         bind<FusedLocationProviderClient>() with singleton { LocationServices.getFusedLocationProviderClient(applicationContext) }
     }

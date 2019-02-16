@@ -10,6 +10,7 @@ import ru.konighack2019.cleancity.presentation.generator.ReportFragment
 import ru.konighack2019.cleancity.presentation.results.ResultsFragment
 import ru.konighack2019.cleancity.presentation.validation.ImageValidationFragment
 import ru.konighack2019.cleancity.presentation.validation.LocationValidationFragment
+import ru.konighack2019.cleancity.presentation.validation.PostingReportFragment
 import ru.konighack2019.cleancity.presentation.validation.ReportGenerationFragment
 import ru.konighack2019.cleancity.service.AppStateService
 import ru.konighack2019.cleancity.service.common.AppState
@@ -26,12 +27,6 @@ class AppActivity : AppCompatActivity() {
         appService.appState.observe(this, Observer { changeAppState(it) })
     }
 
-    private fun setFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, fragment)
-            .commit()
-    }
-
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment).commit()
@@ -44,6 +39,7 @@ class AppActivity : AppCompatActivity() {
             AppState.VALIDATION_LOCATION -> replaceFragment(LocationValidationFragment())
             AppState.REPORT_READY -> replaceFragment(ReportFragment())
             AppState.HISTORY -> replaceFragment(ResultsFragment())
+            AppState.POSTING_REPORT -> replaceFragment(PostingReportFragment())
         }
 
 }
