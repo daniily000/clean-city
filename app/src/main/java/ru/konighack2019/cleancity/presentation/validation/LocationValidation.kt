@@ -31,11 +31,13 @@ class LocationValidationFragment: DialogFragment() {
         binding.vm = viewModel
         viewModel.sanctionedValidationState.observe(this, Observer {
             if (it != null && it != OperationState.PROCESSING) {
+                isSanctioned = it
                 checkStatus()
             }
         })
         viewModel.unsanctionedValidationState.observe(this, Observer {
             if (it != null && it != OperationState.PROCESSING) {
+                isNotAlreadyReported = it
                 checkStatus()
             }
         })
