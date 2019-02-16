@@ -16,7 +16,7 @@ interface ValidationService {
      *  @return [OperationState] of operation
      */
     fun imageContainsDump(imageUris: List<Uri>): LiveData<OperationState>
-    
+
     /**
      *  Detects if user location is near sanctioned dump
      *  @return [OperationState] of operation
