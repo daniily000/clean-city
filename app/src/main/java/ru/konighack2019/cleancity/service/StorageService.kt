@@ -22,9 +22,8 @@ interface StorageService {
     /**
      * Saves [Point] in DB.
      * @param point [Point] to be saved
-     * @return String with Id of saved point
      */
-    fun savePoint(point: Point): String
+    fun savePoint(point: Point): Unit
     /**
      * Fetches User information stored in a local db
      * @return [UserInfo] from local DB

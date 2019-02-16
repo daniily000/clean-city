@@ -35,4 +35,7 @@ dependencies {
     /* Database */
     implementation 'androidx.room:room-runtime:2.1.0-alpha03'
     kapt 'androidx.room:room-compiler:2.1.0-alpha03'
+
+    /* net */
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
