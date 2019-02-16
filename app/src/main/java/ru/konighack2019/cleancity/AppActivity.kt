@@ -27,12 +27,6 @@ class AppActivity : AppCompatActivity() {
         appService.appState.observe(this, Observer { changeAppState(it) })
     }
 
-    private fun setFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container, fragment)
-            .commit()
-    }
-
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment).commit()
