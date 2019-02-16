@@ -38,4 +38,8 @@ dependencies {
 
     /* net */
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    /* kodein di */
+    implementation 'org.kodein.di:kodein-di-generic-jvm:6.0.1'
+    implementation 'org.kodein.di:kodein-di-framework-android-support:6.0.1'
 }
