@@ -1,23 +1,24 @@
-package com.teamtwothree.kartasvalokapp.presentation.results.adapter
+package ru.konighack2019.cleancity.presentation.results.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.teamtwothree.kartasvalokapp.AppDelegate
-import com.teamtwothree.kartasvalokapp.BuildConfig
-import com.teamtwothree.kartasvalokapp.R
-import com.teamtwothree.kartasvalokapp.model.point.PointDetails
-import com.teamtwothree.kartasvalokapp.service.dateToReadable
+
 import kotlinx.android.synthetic.main.item_report.view.*
 import kotlinx.android.synthetic.main.item_report_expanded.view.*
+import ru.konighack2019.cleancity.AppDelegate
+import ru.konighack2019.cleancity.BuildConfig
+import ru.konighack2019.cleancity.R
+import ru.konighack2019.cleancity.dateToReadable
+import ru.konighack2019.cleancity.model.Point
 
-class PointDetailsHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class PointHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
     private var expanded = false
 
-    fun bind(pointDetails: PointDetails) {
+    fun bind(pointDetails: Point) {
         view.tv_report_address.text = pointDetails.address
         view.tv_report_date.text = dateToReadable(pointDetails.createdAt.toLong())
         view.chip_report_status.text = pointDetails.status
