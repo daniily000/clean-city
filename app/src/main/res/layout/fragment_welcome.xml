@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                         android:hint="@string/welcome_hint_name"
-                        android:id="@+id/Name"
+                        android:id="@+id/te_name"
                         android:inputType="textPersonName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>

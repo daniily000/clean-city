@@ -40,6 +40,11 @@ class WelcomeFragment : Fragment() {
         et_phone.setText(mPhoneNumber)
         //et_email.setText(accounts[0].name)
 
+        val mName = tMgr.simOperator
+
+        te_name.setText(mName)
+
+
 
 
     }
