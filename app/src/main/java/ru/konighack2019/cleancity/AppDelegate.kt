@@ -9,6 +9,7 @@ import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
 import ru.konighack2019.cleancity.db.Dao
 import ru.konighack2019.cleancity.db.Database
+import ru.konighack2019.cleancity.di.networkModule
 import ru.konighack2019.cleancity.service.StorageService
 import ru.konighack2019.cleancity.service.StorageServiceImpl
 
@@ -21,6 +22,7 @@ class AppDelegate: Application() {
     init { instance = this }
 
     val kodein: Kodein = Kodein {
+        import(networkModule)
         bind<Dao>() with singleton {
             Room.databaseBuilder(this@AppDelegate, Database::class.java, "cleandb")
                 .fallbackToDestructiveMigration()
