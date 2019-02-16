@@ -43,5 +43,5 @@ class ImageValidationFragment: DialogFragment() {
 class ImageValidationViewModel: ViewModel() {
     private val validationService: ValidationService by AppDelegate.getKodein().instance()
     private val dataService: DataService by AppDelegate.getKodein().instance()
-    val validationState = validationService.imageContainsDump(listOf(dataService.imageUri))
+    val validationState = validationService.imageContainsDump(listOf(dataService.imageUri!!))
 }

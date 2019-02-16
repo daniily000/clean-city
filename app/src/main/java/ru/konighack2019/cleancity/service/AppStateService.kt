@@ -20,17 +20,18 @@ class AppStateService {
 
     init {
         val path =  "file://" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/171006-443-to7bN83pAcHC3CgI.JPG"
+        dataService.imageUri = Uri.parse(path)
         validateImage()
     }
 
     fun generateKSReport() {
         appState.postValue(AppState.GENERATION)
-        reportService.createKSReport(listOf(dataService.imageUri))
+        reportService.createKSReport(listOf(dataService.imageUri!!))
     }
 
     fun generateEsooReport() {
         appState.postValue(AppState.GENERATION)
-        reportService.createKSReport(listOf(dataService.imageUri))
+        reportService.createKSReport(listOf(dataService.imageUri!!))
     }
 
     fun validateImage() {

@@ -1,5 +1,6 @@
 package ru.konighack2019.cleancity.service.data
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 
 import kotlinx.coroutines.GlobalScope
@@ -18,6 +19,8 @@ import ru.konighack2019.cleancity.service.DataService
 import java.io.File
 
 class IntegratedDataService : DataService {
+
+    override var imageUri: Uri? = null
 
     private val ksApi: NetApi by AppDelegate.getKodein().instance()
     private val ksDao: Dao by AppDelegate.getKodein().instance()

@@ -12,7 +12,7 @@ import ru.konighack2019.cleancity.model.UserInfo
  *
  */
 interface DataService {
-    var imageUri: Uri
+    var imageUri: Uri?
     /**
      * Fetches [PointDetails] info from server API and saves to local DB
      * @param id String with id of requested point

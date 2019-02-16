@@ -9,7 +9,6 @@ import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.presentation.generator.GeneratorFragment
 import ru.konighack2019.cleancity.presentation.validation.ImageValidationFragment
 import ru.konighack2019.cleancity.presentation.validation.LocationValidationFragment
-import ru.konighack2019.cleancity.presentation.validation.ValidationFragment
 import ru.konighack2019.cleancity.service.AppStateService
 import ru.konighack2019.cleancity.service.common.AppState
 
@@ -41,6 +40,7 @@ class AppActivity : AppCompatActivity() {
             AppState.GENERATION -> replaceFragment(GeneratorFragment())
             AppState.VALIDATION_IMAGE -> replaceFragment(ImageValidationFragment())
             AppState.VALIDATION_LOCATION -> replaceFragment(LocationValidationFragment())
+            AppState.HISTORY -> {}
         }
 
 }
