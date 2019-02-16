@@ -78,4 +78,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:17.1.5'
     implementation 'com.github.imperiumlabs:GeoFirestore-Android:1.1.1'
     implementation 'com.google.android.gms:play-services-location:16.0.0'
+
+    /* Dexter library for easy permission checking */
+    implementation 'com.karumi:dexter:5.0.0'
 }
