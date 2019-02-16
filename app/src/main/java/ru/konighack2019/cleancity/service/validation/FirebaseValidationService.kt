@@ -4,6 +4,7 @@ import android.Manifest
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -27,6 +28,7 @@ const val DETECTION_RADIUS = 0.2
 
 class FirebaseValidationService : ValidationService {
 
+
     private val locationProvider: FusedLocationProviderClient by AppDelegate.getKodein().instance()
 
     private val db = FirebaseFirestore.getInstance()
@@ -42,8 +44,14 @@ class FirebaseValidationService : ValidationService {
     override fun isNotAlreadyReported(): LiveData<OperationState> =
         detectNearPointsInFirestore(unsanctionedFirestore)
 
+    override fun isNotAlreadyReported(lat: Double, lng: Double): LiveData<OperationState> =
+        detectNearPointsInFirestore(lat, lng, unsanctionedFirestore)
+
     override fun isUnsanctioned(): LiveData<OperationState> =
         detectNearPointsInFirestore(sanctionedFirestore)
+
+    override fun isUnsanctioned(lat: Double, lng: Double): LiveData<OperationState> =
+        detectNearPointsInFirestore(lat, lng, sanctionedFirestore)
 
 
     private fun detectNearPointsInFirestore(store: GeoFirestore): LiveData<OperationState> {
@@ -103,6 +111,20 @@ class FirebaseValidationService : ValidationService {
             else result.postValue(OperationState.SUCCESS)
             geoQuery.removeAllListeners()
         })
+        return result
+    }
+
+    override fun getImageLabels(imageUri: Uri): LiveData<List<String>> {
+        val image = FirebaseVisionImage.fromBitmap(BitmapFactory.decodeFile(imageUri.path))
+        val result = MutableLiveData<List<String>>().also { it.postValue(emptyList()) }
+        detector.detectInImage(image)
+            //detector.detectInImage(FirebaseVisionImage.fromFilePath(AppDelegate.applicationContext(), imageUri))
+            .addOnSuccessListener {
+                result.postValue(it.map { it.label.toString() })
+            }
+            .addOnFailureListener {
+                //TODO: implement error handling
+            }
         return result
     }
 
