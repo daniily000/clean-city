@@ -7,5 +7,9 @@
     <string name="validating_location">Validating location</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_title">Welcome</string>
+    <string name="welcome_hint_name">Name</string>
+    <string name="welcome_hint_mail">Email</string>
+    <string name="welcome_hint_phone">Phone number</string>
+    <string name="welcome_sign_in">Sign In</string>
 </resources>
