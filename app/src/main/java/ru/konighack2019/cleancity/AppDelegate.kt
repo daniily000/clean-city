@@ -33,7 +33,8 @@ class AppDelegate: Application() {
     }
 
     companion object {
-        lateinit var instance: AppDelegate
+        private lateinit var instance: AppDelegate
+
         fun applicationContext() : Context {
             return instance.applicationContext
         }
