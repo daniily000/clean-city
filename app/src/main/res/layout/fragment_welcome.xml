@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                         android:hint="@string/welcome_hint_mail"
-                        android:id="@+id/Mail"
+                        android:id="@+id/et_email"
                         android:inputType="textEmailAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content">
                 <com.google.android.material.textfield.TextInputEditText
                         android:hint="@string/welcome_hint_phone"
-                        android:id="@+id/Phone"
+                        android:id="@+id/et_phone"
                         android:inputType="phone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
