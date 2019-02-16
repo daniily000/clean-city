@@ -1,6 +1,6 @@
 package ru.konighack2019.cleancity.service
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import ru.konighack2019.cleancity.model.Point
 import ru.konighack2019.cleancity.model.UserInfo
 

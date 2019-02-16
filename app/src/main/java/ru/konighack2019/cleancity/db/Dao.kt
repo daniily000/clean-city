@@ -1,6 +1,6 @@
 package ru.konighack2019.cleancity.db
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy

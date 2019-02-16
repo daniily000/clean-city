@@ -1,6 +1,6 @@
 package ru.konighack2019.cleancity.service
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.net.Uri
 import ru.konighack2019.cleancity.service.common.OperationState
 

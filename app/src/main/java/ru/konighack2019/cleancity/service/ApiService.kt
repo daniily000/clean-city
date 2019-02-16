@@ -1,6 +1,6 @@
 package ru.konighack2019.cleancity.service
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.GlobalScope
 import okhttp3.MultipartBody
 import okhttp3.RequestBody

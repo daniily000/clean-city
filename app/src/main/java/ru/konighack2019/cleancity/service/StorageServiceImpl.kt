@@ -1,6 +1,6 @@
 package ru.konighack2019.cleancity.service
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.db.Dao

@@ -1,6 +1,6 @@
 package ru.konighack2019.cleancity
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class AppActivity : AppCompatActivity() {

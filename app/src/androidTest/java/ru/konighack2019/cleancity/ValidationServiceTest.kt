@@ -1,7 +1,7 @@
 package ru.konighack2019.cleancity
 
 import android.Manifest
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import android.net.Uri
 import android.os.Environment
 import android.util.Log

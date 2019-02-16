@@ -1,8 +1,8 @@
 package ru.konighack2019.cleancity.service.validation
 
 import android.Manifest
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
