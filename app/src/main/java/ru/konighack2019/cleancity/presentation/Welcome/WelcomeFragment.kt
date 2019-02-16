@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.app.Fragment
+import android.content.Intent
 import android.telephony.TelephonyManager
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,9 @@ import ru.konighack2019.cleancity.R
 
 class WelcomeFragment : Fragment() {
 
+    private var promptedForAccount = false
+    private  val ACCOUNT_PICK = 10
+
 
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +28,7 @@ class WelcomeFragment : Fragment() {
 
         val am : AccountManager = AccountManager.get(activity.applicationContext)
         val accounts = am.accounts
-        Log.wtf("lol_tag", accounts.toString())
+        //Log.wtf("lol_tag", accounts.toString())
 
 
 
@@ -34,8 +38,8 @@ class WelcomeFragment : Fragment() {
         Log.wtf("lol_tag", mPhoneNumber)
 
         et_phone.setText(mPhoneNumber)
-        et_email.setText(accounts[0].name)
-        
+        //et_email.setText(accounts[0].name)
+
 
 
     }
@@ -49,28 +53,37 @@ class WelcomeFragment : Fragment() {
     }
 
 
+    override fun onResume() {
+        super.onResume()
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
+        if (!promptedForAccount) {
+            promptedForAccount = true
+            val intent = AccountManager.newChooseAccountIntent(
+                null,
+                null,
+                arrayOf("com.google"),
+                false,
+                null,
+                null,
+                null,
+                null)
+            startActivityForResult(intent, ACCOUNT_PICK)
+        }
 
     }
 
-    override fun onDetach() {
-        super.onDetach()
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == ACCOUNT_PICK) {
+            val accountName = data?.extras?.get(AccountManager.KEY_ACCOUNT_NAME) ?: "NONE"
+            Log.d("mem_tag", "Selected account: $accountName")
+
+            et_email.setText(accountName.toString())
+
+
+        }
     }
 
 
-    interface OnFragmentInteractionListener {
-
-    }
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WelcomeFragment().apply {
-
-            }
-    }
 }
