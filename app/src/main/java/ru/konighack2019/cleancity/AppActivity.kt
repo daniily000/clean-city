@@ -12,6 +12,7 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import org.kodein.di.generic.instance
+import ru.konighack2019.cleancity.presentation.camera.CameraFragment
 import ru.konighack2019.cleancity.presentation.generator.ReportFragment
 import ru.konighack2019.cleancity.presentation.results.ResultsFragment
 import ru.konighack2019.cleancity.presentation.validation.ImageValidationFragment
@@ -37,7 +38,9 @@ class AppActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app)
-
+        FirebaseApp.initializeApp(this)
+        appService.appState.observe(this, Observer { changeAppState(it) })
+        appService.showCamera()
         checkPermissions(permissions) { init() }
     }
 
@@ -86,6 +89,7 @@ class AppActivity : AppCompatActivity() {
             AppState.REPORT_READY -> replaceFragment(ReportFragment())
             AppState.HISTORY -> replaceFragment(ResultsFragment())
             AppState.POSTING_REPORT -> replaceFragment(PostingReportFragment())
+            AppState.CAMERA -> replaceFragment(CameraFragment())
         }
 
 }
