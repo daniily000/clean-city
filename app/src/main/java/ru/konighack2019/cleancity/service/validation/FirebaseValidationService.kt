@@ -21,7 +21,7 @@ import ru.konighack2019.cleancity.service.ValidationService
 import ru.konighack2019.cleancity.service.common.OperationState
 import java.lang.Exception
 
-val KEYWORDS = listOf("Waste", "Litter", "Scrap", "Pollution", "Junk")
+val KEYWORDS = listOf("waste", "litter", "scrap", "pollution", "junk")
 const val SANCTIONED = "sanctioned"
 const val UNSANCTIONED = "unsanctioned"
 const val DETECTION_RADIUS = 0.2
