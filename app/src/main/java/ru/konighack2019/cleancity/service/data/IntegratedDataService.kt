@@ -2,6 +2,7 @@ package ru.konighack2019.cleancity.service.data
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -11,8 +12,9 @@ import okhttp3.MultipartBody
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.db.Dao
+import ru.konighack2019.cleancity.model.HistoryEntry
 import ru.konighack2019.cleancity.model.Report
-import ru.konighack2019.cleancity.model.Point
+import ru.konighack2019.cleancity.model.KSEntry
 import ru.konighack2019.cleancity.model.UserInfo
 import ru.konighack2019.cleancity.net.NetApi
 import ru.konighack2019.cleancity.service.DataService
@@ -25,7 +27,7 @@ class IntegratedDataService : DataService {
     private val api: NetApi by AppDelegate.getKodein().instance()
     private val dao: Dao by AppDelegate.getKodein().instance()
 
-    override fun getPointDetails(id: String): LiveData<Point> {
+    override fun getPointDetails(id: String): LiveData<KSEntry> {
         GlobalScope.launch {
             dao.insertPoint(api.getPointById(id).await())
         }
@@ -59,7 +61,8 @@ class IntegratedDataService : DataService {
         return id
     }
 
-    override fun getAllPointDetails(): LiveData<List<Point>> = dao.getAllPoints()
+    override fun getKSEntries() = dao.getAllKSReports()
+    override fun getEsooEntries() = dao.getAllEsooReports()
     override fun getUserInfo(): LiveData<UserInfo> = dao.getUserInfo()
     override fun saveUserInfo(userInfo: UserInfo) = dao.insertUserInfo(userInfo)
     override fun getUserInfoBlocking(): UserInfo = dao.getUserInfoBlocking()

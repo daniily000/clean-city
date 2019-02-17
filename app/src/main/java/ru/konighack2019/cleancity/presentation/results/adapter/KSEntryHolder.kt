@@ -12,26 +12,24 @@ import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.BuildConfig
 import ru.konighack2019.cleancity.R
 import ru.konighack2019.cleancity.dateToReadable
-import ru.konighack2019.cleancity.model.Point
+import ru.konighack2019.cleancity.model.KSEntry
 
-class PointHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+class KSEntryHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
     private var expanded = false
 
-    fun bind(pointDetails: Point) {
-        view.tv_report_address.text = pointDetails.address
-        view.tv_report_date.text = dateToReadable(pointDetails.createdAt.toLong())
-        view.chip_report_status.text = pointDetails.status
-        view.tv_report_subject.text = pointDetails.subject
-        view.tv_report_description.text = pointDetails.description
-        view.tv_report_comment.text = pointDetails.comment
+    fun bind(ksEntry: KSEntry) {
+        view.tv_report_address.text = ksEntry.address
+        view.tv_report_date.text = dateToReadable(ksEntry.createdAt.toLong())
+        view.chip_report_status.text = ksEntry.status
+        view.tv_report_subject.text = ksEntry.subject
+        view.tv_report_description.text = ksEntry.description
+        view.tv_report_comment.text = ksEntry.comment
 
-        spawnPhotosInParent(pointDetails.photo, view.report_layout_photo)
-        spawnPhotosInParent(pointDetails.photoAdmin, view.report_layout_photo_admin)
+        spawnPhotosInParent(ksEntry.photo, view.report_layout_photo)
+        spawnPhotosInParent(ksEntry.photoAdmin, view.report_layout_photo_admin)
 
         view.setOnClickListener {
-            //onClickListener: ReportsAdapter.OnItemClickListener
-            //onClickListener.onClick(this.adapterPosition)
             when (expanded) {
                 true -> {
                     view.iv_expand.setImageDrawable(AppDelegate.applicationContext().getDrawable(R.drawable.ic_expand))

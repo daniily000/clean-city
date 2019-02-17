@@ -91,13 +91,11 @@ class AppActivity : AppCompatActivity() {
 
     private fun createPermissionListenerWithCustomOnSuccess(onSuccess: () -> Unit): MultiplePermissionsListener =
         object: MultiplePermissionsListener {
-
             override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
                 if (report?.areAllPermissionsGranted() != false) {
                     onSuccess.invoke()
                 }
             }
-
             override fun onPermissionRationaleShouldBeShown(
                 permissions: MutableList<PermissionRequest>?,
                 token: PermissionToken?

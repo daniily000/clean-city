@@ -5,7 +5,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ru.konighack2019.cleancity.model.Point
+import ru.konighack2019.cleancity.model.EsooEntry
+import ru.konighack2019.cleancity.model.KSEntry
 import ru.konighack2019.cleancity.model.UserInfo
 
 @Dao
@@ -22,21 +23,24 @@ interface Dao {
     @Query("select * from user_info where id = 0")
     fun getUserInfoBlocking(): UserInfo
 
-    /* Point */
+    /* KSEntry */
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPoint(pointDetails: Point)
+    fun insertPoint(KSEntryDetails: KSEntry)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPoints(points: List<Point>)
+    fun insertPoints(KSEntries: List<KSEntry>)
 
-    @Query("select * from points")
-    fun getAllPoints(): LiveData<List<Point>>
+    @Query("select * from ksentries")
+    fun getAllKSReports(): LiveData<List<KSEntry>>
 
-    @Query("select * from points where id = :id")
-    fun getPointById(id: String): LiveData<Point>
+    @Query("select * from esooentries")
+    fun getAllEsooReports(): LiveData<List<EsooEntry>>
 
-    @Query("select * from points where id = :id")
-    fun getPointDetailsBlocking(id: String): Point
+    @Query("select * from ksentries where id = :id")
+    fun getPointById(id: String): LiveData<KSEntry>
+
+    @Query("select * from ksentries where id = :id")
+    fun getPointDetailsBlocking(id: String): KSEntry
 
 }

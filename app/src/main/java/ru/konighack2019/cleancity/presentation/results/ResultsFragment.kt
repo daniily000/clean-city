@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.teamtwothree.kartasvalokapp.presentation.results.adapter.ReportsAdapter
 import kotlinx.android.synthetic.main.fr_results.*
 import ru.konighack2019.cleancity.R
+import ru.konighack2019.cleancity.presentation.results.adapter.ReportsAdapter
 
 class ResultsFragment : Fragment(){
 
