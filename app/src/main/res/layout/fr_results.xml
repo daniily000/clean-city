@@ -1,18 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:bind="http://schemas.android.com/apk/res-auto">
-<data>
-    <import type="android.view.View" />
-    <variable
-            name="vm"
-            type="ru.konighack2019.cleancity.presentation.results.ResultsViewModel" />
-</data>
 
-<androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_results"
-        android:orientation="vertical"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+                name="vm"
+                type="ru.konighack2019.cleancity.presentation.results.ResultsViewModel" />
+    </data>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        bind:items="@{vm.reports}">
-</androidx.recyclerview.widget.RecyclerView>
+        android:fitsSystemWindows="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:fitsSystemWindows="true"
+            android:layout_height="@dimen/app_bar_height"
+            android:layout_width="match_parent"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
+                android:fitsSystemWindows="true"
+                android:background="@drawable/background_fr_results"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:toolbarId="@+id/toolbar"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:contentScrim="?attr/colorPrimary">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_width="match_parent"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:id="@+id/recycler_results"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:items="@{vm.reports}">
+    </androidx.recyclerview.widget.RecyclerView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
+            android:layout_gravity="bottom|end"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_open_camera"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_camera"
+    />
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

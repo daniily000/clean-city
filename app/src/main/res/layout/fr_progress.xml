@@ -1,39 +1,66 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
+        xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-    <com.budiyev.android.circularprogressbar.CircularProgressBar
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:id="@+id/location_validation_progress"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            app:animateProgress="true"
-            app:backgroundStrokeColor="@color/colorPrimaryDark"
-            app:backgroundStrokeWidth="4dp"
-            app:drawBackgroundStroke="false"
-            app:foregroundStrokeCap="butt"
-            app:foregroundStrokeColor="@color/colorPrimary"
-            app:foregroundStrokeWidth="4dp"
-            app:indeterminate="true"
-            app:indeterminateRotationAnimationDuration="1200"
-            app:indeterminateSweepAnimationDuration="600"
-            app:indeterminateMinimumAngle="45"
-            app:startAngle="270"
-            android:layout_margin="8dp"
-    />
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:textAlignment="center"
-              android:id="@+id/progress_message"
-              app:layout_constraintTop_toBottomOf="@id/location_validation_progress"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintEnd_toEndOf="parent"/>
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:id="@+id/frameLayout">
+
+        <ImageView android:layout_width="match_parent"
+                   android:src="@drawable/upload"
+                   android:alpha="0.6"
+                   android:layout_height="match_parent"
+                   android:scaleType="fitXY"/>
+
+
+        <com.budiyev.android.circularprogressbar.CircularProgressBar
+                android:id="@+id/location_validation_progress"
+                android:layout_width="240dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="100dp"
+                android:layout_height="240dp"
+                app:animateProgress="true"
+                app:backgroundStrokeColor="@color/colorPrimaryDark"
+                app:backgroundStrokeWidth="10dp"
+                app:drawBackgroundStroke="false"
+                app:foregroundStrokeCap="butt"
+                app:foregroundStrokeColor="@color/colorPrimaryDark"
+                app:foregroundStrokeWidth="10dp"
+                app:indeterminate="true"
+                app:indeterminateRotationAnimationDuration="1200"
+                app:indeterminateSweepAnimationDuration="600"
+                app:indeterminateMinimumAngle="45"
+                app:startAngle="270"
+        />
+        <androidx.cardview.widget.CardView android:layout_width="200dp"
+                                           app:cardCornerRadius="100dp"
+                                           android:layout_marginBottom="100dp"
+                                           android:layout_gravity="center"
+                                           android:layout_height="200dp">
+
+            <TextView
+                    android:text="82%"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="70sp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_progress"/>
+            <TextView
+                    android:text="In progress"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/progress_message"
+                    android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
