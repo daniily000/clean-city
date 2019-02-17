@@ -31,12 +31,6 @@
                  app:reportField="@{report.address}"
                  />
 
-        <CheckBox
-                android:id="@+id/report_participate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
         <LinearLayout
                 android:id="@+id/report_images"
                 android:layout_width="wrap_content"

@@ -100,6 +100,12 @@ abstract class ProgressFragment: DialogFragment() {
         view.progress_message.text = getMessage()
         return view
     }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
     abstract fun observeState()
     abstract fun getMessage(): String
 }
+
