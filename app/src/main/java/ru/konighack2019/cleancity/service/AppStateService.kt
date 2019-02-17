@@ -17,6 +17,7 @@ class AppStateService {
     private val appService: AppStateService by AppDelegate.getKodein().instance()
 
     val appState = MutableLiveData<AppState>()
+    val errors = MutableLiveData<String>().also { it.postValue("") }
 
     init {
 //        val path =  "file://" + Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/171006-443-to7bN83pAcHC3CgI.JPG"
@@ -47,7 +48,8 @@ class AppStateService {
     }
 
     fun showError(message: String) {
-        //TODO: NOT IMPLEMENTED
+        errors.postValue(message)
+        appState.postValue(AppState.HISTORY)
     }
 
     fun onReportReady() {

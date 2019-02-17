@@ -85,8 +85,8 @@ class FirebaseValidationService : ValidationService {
                 .addOnSuccessListener {
                     if (hasDump(it.map { it.label.toString().toLowerCase() })) positives++
                     else negatives++
-                    if (positives + negatives == imageUris.size) {
-                        if (positives >= imageUris.size / 2) result.postValue(OperationState.SUCCESS)
+                    if (positives + negatives >= imageUris.size) {
+                        if (positives != 0 && positives >= imageUris.size / 2) result.postValue(OperationState.SUCCESS)
                         else result.postValue(OperationState.FAILED)
                     }
                 }
