@@ -5,12 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.FirebaseApp
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import kotlinx.android.synthetic.main.activity_app.*
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.presentation.camera.CameraFragment
 import ru.konighack2019.cleancity.presentation.generator.ReportFragment
@@ -47,6 +49,7 @@ class AppActivity : AppCompatActivity() {
     private fun init() {
         FirebaseApp.initializeApp(this@AppActivity)
         appService.appState.observe(this@AppActivity, Observer { changeAppState(it) })
+        appService.errors.observe(this@AppActivity, Observer { showSnackBar(it) })
     }
 
     private fun checkPermissions(permissions: Collection<String>, onSuccess: () -> Unit) {
@@ -91,5 +94,5 @@ class AppActivity : AppCompatActivity() {
             AppState.POSTING_REPORT -> replaceFragment(PostingReportFragment())
             AppState.CAMERA -> replaceFragment(CameraFragment())
         }
-
+    private fun showSnackBar(text: String) = Snackbar.make(root_layout, text, Snackbar.LENGTH_SHORT).show()
 }
