@@ -50,6 +50,15 @@
             android:layout_height="match_parent"
             bind:items="@{vm.reports}">
     </androidx.recyclerview.widget.RecyclerView>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.FloatingActionButton"
+            android:layout_gravity="bottom|end"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_open_camera"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_camera"
+    />
 
 
 

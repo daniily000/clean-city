@@ -21,7 +21,12 @@ class PointHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(pointDetails: Point) {
         view.tv_report_address.text = pointDetails.address
         view.tv_report_date.text = dateToReadable(pointDetails.createdAt.toLong())
-        view.chip_report_status.text = pointDetails.status
+        when(pointDetails.status){
+            "2" -> view.chip_report_status.text = "Check"
+            "1" -> view.chip_report_status.text = "Обработка"
+            "3" -> view.chip_report_status.text = "Ответ"
+        }
+
         view.tv_report_subject.text = pointDetails.subject
         view.tv_report_description.text = pointDetails.description
         view.tv_report_comment.text = pointDetails.comment
