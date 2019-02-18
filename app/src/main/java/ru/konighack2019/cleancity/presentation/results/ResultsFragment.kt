@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fr_results.*
 import ru.konighack2019.cleancity.R
+import ru.konighack2019.cleancity.model.HistoryEntry
 import ru.konighack2019.cleancity.presentation.results.adapter.ReportsAdapter
 
 class ResultsFragment : Fragment(){
@@ -22,7 +23,7 @@ class ResultsFragment : Fragment(){
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recycler_results.adapter = ReportsAdapter(emptyList())
+        recycler_results.adapter = ReportsAdapter(mutableListOf())
         recycler_results.layoutManager = LinearLayoutManager(this.activity)
     }
 }

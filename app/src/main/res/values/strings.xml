@@ -6,4 +6,9 @@
     <string name="validationg_image">Validating image</string>
     <string name="validating_location">Validating location</string>
     <string name="sending_report">Sending report</string>
+    <string name="edit_report">Edit Report</string>
+    <string name="post_report">Post Report</string>
+    <string name="comment">Comment</string>
+    <string name="description">Description</string>
+    <string name="subject">Subject</string>
 </resources>
