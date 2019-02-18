@@ -53,7 +53,7 @@ class AppActivity : AppCompatActivity() {
         googleApiClient = GoogleApiClient.Builder(AppDelegate.applicationContext()).addApi(LocationServices.API).build()
         googleApiClient.connect()
         requestUpdates()
-        appService.showCamera()
+        appService.showHistory()
         checkPermissions(permissions) { init() }
     }
 
@@ -124,5 +124,9 @@ class AppActivity : AppCompatActivity() {
             AppState.POSTING_REPORT -> replaceFragment(PostingReportFragment())
             AppState.CAMERA -> replaceFragment(CameraFragment())
         }
-    private fun showSnackBar(text: String) = Snackbar.make(root_layout, text, Snackbar.LENGTH_SHORT).show()
+    private fun showSnackBar(text: String) {
+        if (text.isNotEmpty()) {
+            Snackbar.make(root_layout, text, Snackbar.LENGTH_SHORT).show()
+        }
+    }
 }
