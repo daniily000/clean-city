@@ -71,13 +71,13 @@ class DataServiceTest {
             Assert.assertTrue(pointDetails?.id == id)
         }
 
-    @Test
-    fun getAll() =
-        runBlocking {
-            val id =dataService.postReport(report)
-            val list = getResultOrNull(dataService.getAllPointDetails())
-            Assert.assertTrue(list?.get(0)?.id == id)
-        }
+//    @Test
+//    fun getAll() =
+//        runBlocking {
+//            val id =dataService.postReport(report)
+//            val list = getResultOrNull(dataService.getAllPointDetails())
+//            Assert.assertTrue(list?.get(0)?.id == id)
+//        }
 
     @Test
     fun saveAndGetUser() =

@@ -13,6 +13,8 @@ import kotlinx.coroutines.launch
 import org.kodein.di.generic.instance
 import ru.konighack2019.cleancity.AppDelegate
 import ru.konighack2019.cleancity.R
+import ru.konighack2019.cleancity.model.EsooEntry
+import ru.konighack2019.cleancity.model.KSEntry
 import ru.konighack2019.cleancity.model.Report
 import ru.konighack2019.cleancity.model.UserInfo
 import ru.konighack2019.cleancity.service.ReportGenerator
@@ -22,7 +24,9 @@ import java.util.*
 
 class TestReportGenerator : ReportGenerator {
     override fun createEsooReport(imageUris: List<Uri>): LiveData<OperationState> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        generationState.postValue(OperationState.PROCESSING)
+        generateReport(imageUris)
+        return generationState
     }
 
     override fun createKSReport(imageUris: List<Uri>): LiveData<OperationState> {

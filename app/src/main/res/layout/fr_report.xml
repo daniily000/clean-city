@@ -19,7 +19,7 @@
         <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:id="@+id/btn_edit_report"
-                android:text="Edit Report"
+                android:text="@string/edit_report"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/btn_post_report"
                 app:layout_constraintTop_toTopOf="parent"
@@ -32,7 +32,7 @@
         <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:id="@+id/btn_post_report"
-                android:text="Post Report"
+                android:text="@string/post_report"
                 app:layout_constraintStart_toEndOf="@id/btn_edit_report"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

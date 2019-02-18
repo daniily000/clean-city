@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Чистый город</string>
+    <string name="report_subject">Отчет о свалке</string>
+    <string name="report_description">Свалка по адресу %1$s</string>
+    <string name="generating_report">Генерируем отчет…</string>
+    <string name="validationg_image">Проверяем фото…</string>
+    <string name="validating_location">Определяем тип свалки…</string>
+    <string name="sending_report">Отправка отчета</string>
+    <string name="edit_report">Редактировать отчет</string>
+    <string name="post_report">Отправить отчет</string>
+    <string name="comment">Комментарий</string>
+    <string name="description">Описание</string>
+    <string name="subject">Тема</string>
+</resources>

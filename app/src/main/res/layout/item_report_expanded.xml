@@ -14,7 +14,7 @@
             app:layout_constraintBottom_toTopOf="@id/tv_report_description"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:textAlignment="center"
-            android:text="Subject"/>
+            android:text="@string/subject"/>
 
     <TextView
             android:id="@+id/tv_report_description"
@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/tv_report_comment"
-            android:text="Description"/>
+            android:text="@string/description"/>
 
     <TextView
             android:id="@+id/tv_report_comment"
@@ -35,7 +35,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/report_layout_photo"
             android:textColor="@color/colorAccent"
-            android:text="Comment"/>
+            android:text="@string/comment"/>
 
     <LinearLayout
             android:id="@+id/report_layout_photo"

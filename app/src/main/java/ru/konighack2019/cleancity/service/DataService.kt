@@ -3,9 +3,7 @@ package ru.konighack2019.cleancity.service
 import android.net.Uri
 import androidx.lifecycle.LiveData
 import retrofit2.Call
-import ru.konighack2019.cleancity.model.Report
-import ru.konighack2019.cleancity.model.Point
-import ru.konighack2019.cleancity.model.UserInfo
+import ru.konighack2019.cleancity.model.*
 
 /**
  * Integrated Service for server API interaction and storing data to db.
@@ -14,16 +12,21 @@ import ru.konighack2019.cleancity.model.UserInfo
 interface DataService {
     var imageUri: Uri?
     /**
-     * Fetches [PointDetails] info from server API and saves to local DB
+     * Fetches [KSEntry] info from server API and saves to local DB
      * @param id String with id of requested point
-     * @return [PointDetails] from updated DB
+     * @return [KSEntry] from updated DB
      */
-    fun getPointDetails(id: String): LiveData<Point>
+    fun getPointDetails(id: String): LiveData<KSEntry>
     /**
-     * Fetches all reports that were previously sent from app and saved into local db.
-     * @return List<[PointDetails]> containing all reports
+     * Fetches all KS reports that were previously sent from app and saved into local db.
+     * @return List<[KSEntry]> containing all reports
      */
-    fun getAllPointDetails(): LiveData<List<Point>>
+    fun getKSEntries(): LiveData<List<KSEntry>>
+    /**
+     * Fetches all KS reports that were previously sent from app and saved into local db.
+     * @return List<[EsooEntry]> containing all reports
+     */
+    fun getEsooEntries(): LiveData<List<EsooEntry>>
     /**
      * Posts Report to server API and saves result in DB.
      * @param report [Report] to be posted

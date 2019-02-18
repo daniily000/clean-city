@@ -4,13 +4,13 @@ import kotlinx.coroutines.Deferred
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
-import ru.konighack2019.cleancity.model.Point
+import ru.konighack2019.cleancity.model.KSEntry
 
 interface NetApi {
 
     /* KartaSvalok.ru */
     @GET("port_query/{id}")
-    fun getPointById(@Path("id") id: String): Deferred<Point>
+    fun getPointById(@Path("id") id: String): Deferred<KSEntry>
 
     @POST("requests")
     fun postKSReport(@Body multipartBody: MultipartBody): Deferred<String>
