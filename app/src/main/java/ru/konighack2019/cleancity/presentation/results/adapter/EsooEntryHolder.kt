@@ -9,7 +9,6 @@ import ru.konighack2019.cleancity.model.EsooEntry
 
 class EsooEntryHolder(private val view: View) : RecyclerView.ViewHolder(view) {
 
-    private var expanded = false
 
     fun bind(esooEntry: EsooEntry) {
         view.tv_report_address.text = esooEntry.address

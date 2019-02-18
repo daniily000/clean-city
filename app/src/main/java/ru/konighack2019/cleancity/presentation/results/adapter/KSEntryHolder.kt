@@ -21,7 +21,11 @@ class KSEntryHolder(private val view: View) : RecyclerView.ViewHolder(view) {
     fun bind(ksEntry: KSEntry) {
         view.tv_report_address.text = ksEntry.address
         view.tv_report_date.text = dateToReadable(ksEntry.createdAt.toLong())
-        view.chip_report_status.text = ksEntry.status
+        when (ksEntry.status) {
+            "1" -> view.chip_report_status.text = "обрабатывается"
+            "2" -> view.chip_report_status.text = "на проверке"
+            "3" -> view.chip_report_status.text = "ответ готов"
+        }
         view.tv_report_subject.text = ksEntry.subject
         view.tv_report_description.text = ksEntry.description
         view.tv_report_comment.text = ksEntry.comment
