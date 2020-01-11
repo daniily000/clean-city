@@ -5,10 +5,9 @@ The idea of the project is a one-button application with a camera for reporting 
 Quickly, conveniently, everyone uses, there is no garbage, beauty and grandeur. In addition, all sorts of statuses and achievements for those who report a lot, sharing status, etc.
 
 ## Step-by-step
-1. took out the phone
-2. the camera turned on
-3. poked on the button 
-4. everything took a picture and was sent.
+1. open the application and take a photo of an unauthorized dump
+2. click send
+3. wait for the verification results
 
 ## Features
 With the app, you can:
@@ -18,7 +17,7 @@ With the app, you can:
 4. see the history of your requests and their statuses
 5. use status system for users (depending on the number of successful cleanups on user reports)
 6. share status in social networks.
-7. (In progress) AR extension, to display already fixed points in the camera with luminous markers (so that when looking at the camera, the user immediately understands whether the dump is already damaged or not)
+7. AR extension, to display already fixed points in the camera with luminous markers (so that when looking at the camera, the user immediately understands whether the dump is already damaged or not)
 
 ## Requirements
 - Android API 21+
