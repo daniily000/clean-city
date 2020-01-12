@@ -26,10 +26,10 @@ With the app, you can:
 
 ## Screenshots are presented below:
 <p>
-<img src="https://i.imgur.com/UXzJs0C.jpg" width="200" height="350" />
-<img src="https://i.imgur.com/UXzJs0C.jpg" width="200" height="350" />
-<img src="https://i.imgur.com/UXzJs0C.jpg" width="200" height="350" />
-<img src="https://i.imgur.com/UXzJs0C.jpg" width="200" height="350" />
+<img src="https://github.com/daniily000/clean-city/blob/master/1.jpg" width="200" height="350" />
+<img src="https://github.com/daniily000/clean-city/blob/master/2.jpg" width="200" height="350" />
+<img src="https://github.com/daniily000/clean-city/blob/master/3.jpg" width="200" height="350" />
+<img src="https://github.com/daniily000/clean-city/blob/master/4.jpg" width="200" height="350" />
 </p>
 
 ## Installation
@@ -53,3 +53,11 @@ From Android Studio:
 4. Run the linter (ruby lint.rb').
 5. Push your branch (git push origin my-new-feature)
 6. Create a new Pull Request
+
+## Authors
+
+* **Nikita** - *AR CORE* - tg: @NikitaDroid
+* **Nikita** - *Android and positive mood* - tg: @Nikita Lyutikov
+* **Daniily** - *Teamlead* - tg: @daniily000
+* **Alex** - *Backend* - tg: @slimlight
+* **Orina** - *Android and UI/UX* - tg: @doldrums3
