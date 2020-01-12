@@ -2,7 +2,7 @@
 A repo containing a Clean City App for Android, free to use :)
 ## General description:
 The idea of the project is a one-button application with a camera for reporting an unauthorized dump. 
-Quickly, conveniently, everyone uses, there is no garbage, beauty and grandeur. In addition, all sorts of statuses and achievements for those who report a lot, sharing status, etc.
+Quick and convenient for everyone to use. help to clean our beautiful world. In addition, all sorts of statuses and achievements for those who report a lot, sharing status, etc.
 
 ## Step-by-step
 1. open the application and take a photo of an unauthorized dump
