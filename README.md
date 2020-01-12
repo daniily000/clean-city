@@ -25,11 +25,21 @@ With the app, you can:
 - Here you can read much more details (RUS) https://docs.google.com/document/d/1HgvS-FZP8SDTnoZsgeLydVq8MZwqYGhkIrDBZdUSJ8c/edit
 
 ## Screenshots are presented below:
+Below you can see the scenario of using the camera, in case the user photographs not some landfill, but some other object. This is an extreme case UX, where the app will show a notification about a unsuitable object for reporting.
+
 <p>
 <img src="https://github.com/daniily000/clean-city/blob/master/1.jpg" width="200" height="350" />
 <img src="https://github.com/daniily000/clean-city/blob/master/2.jpg" width="200" height="350" />
 <img src="https://github.com/daniily000/clean-city/blob/master/3.jpg" width="200" height="350" />
 <img src="https://github.com/daniily000/clean-city/blob/master/4.jpg" width="200" height="350" />
+</p>
+
+And here is a more realistic scenario with a photo of a real trash. The app processes the snapshot and sends the report to the server. A little later, you can see the result of the check.
+
+<p>
+<img src="https://github.com/daniily000/clean-city/blob/master/5.jpg" width="200" height="350" />
+<img src="https://github.com/daniily000/clean-city/blob/master/6.jpg" width="200" height="350" />
+<img src="https://github.com/daniily000/clean-city/blob/master/7.jpg" width="200" height="350" />
 </p>
 
 ## Installation
